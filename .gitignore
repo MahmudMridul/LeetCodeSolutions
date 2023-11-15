@@ -1,0 +1,5 @@
+.vs/*
+LeetCodeSolutions/bin/*
+LeetCodeSolutions/obj/*
+LeetCodeSolutionsTests/bin/*
+LeetCodeSolutionsTests/obj/*
