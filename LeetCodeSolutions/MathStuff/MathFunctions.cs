@@ -1,5 +1,5 @@
 ﻿
-namespace LeetCodeSolutions.Math
+namespace LeetCodeSolutions.MathStuff
 {
     public static class MathFunctions
     {
