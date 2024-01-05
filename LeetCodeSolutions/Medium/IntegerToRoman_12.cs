@@ -29,7 +29,7 @@ namespace LeetCodeSolutions.Medium
 
         private int[] keys = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
 
-        public string IntToRoman(int num)
+        public string IntToRoman_v1(int num)
         {
             Stack<string> stack = new Stack<string>();
             if (map.ContainsKey(num)) { return map[num]; }
@@ -77,6 +77,22 @@ namespace LeetCodeSolutions.Medium
                 }
             }
             return 1000;
+        }
+
+        public string IntToRoman(int num)
+        {
+            string[] roman = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+            int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < values.Length; ++i)
+            {
+                while(num >= values[i])
+                {
+                    sb.Append(roman[i]);
+                    num -= values[i];
+                }
+            }
+            return sb.ToString();
         }
     }
 }
