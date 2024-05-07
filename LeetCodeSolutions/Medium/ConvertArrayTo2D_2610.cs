@@ -26,7 +26,7 @@
 
         private int[] GetCountArray(int[] nums)
         {
-            int[] count = new int[201];
+            int[] count = new int[nums.Length + 1];
             for(int i = 0; i < nums.Length; ++i)
             {
                 ++count[nums[i]];
