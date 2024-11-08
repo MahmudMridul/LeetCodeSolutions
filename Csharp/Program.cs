@@ -7,10 +7,8 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            ListNode l1 = ListNode.CreateFromArray([9, 9, 9]);
-            ListNode l2 = ListNode.CreateFromArray([9]);
-            ListNode res = new LC_02().AddTwoNumbers(l1, l2);
-            Console.WriteLine(string.Join(' ', ListNode.ToArray(res)));
+            int[] test = { 1, 2, 3, 4, 5 };
+            new LC_209().MinSubArrayLen(15, test);
 
         }
     }

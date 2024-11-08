@@ -1,7 +1,4 @@
-﻿
-using Csharp.Easy;
-
-namespace Csharp.Medium
+﻿namespace Csharp.Medium
 {
     public class LC_11
     {
