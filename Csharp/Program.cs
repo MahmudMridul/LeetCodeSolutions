@@ -7,10 +7,10 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            int[] test = { -1, 0, 1, 2, -1, -4 };
+            int[] test = { 0, 0, 0 };
             
-            var list = new LC_15().ThreeSum(test);
-            Helper.PrintNestedCollection(list);
+            var sum = new LC_16().ThreeSumClosest(test, 1);
+            Console.WriteLine(sum);
         }
     }
 }
