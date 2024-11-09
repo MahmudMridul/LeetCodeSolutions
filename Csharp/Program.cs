@@ -1,4 +1,4 @@
-﻿using Csharp.LC.Classes;
+﻿using Csharp.Helpers;
 using Csharp.Medium;
 
 namespace Csharp
@@ -7,9 +7,10 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            int[] test = { 1, 2, 3, 4, 5 };
-            new LC_209().MinSubArrayLen(15, test);
-
+            int[] test = { -1, 0, 1, 2, -1, -4 };
+            
+            var list = new LC_15().ThreeSum(test);
+            Helper.PrintNestedCollection(list);
         }
     }
 }
