@@ -1,44 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Csharp.Medium
+﻿namespace Csharp.Medium
 {
-    internal class LetterCombinationsOfAPhoneNumber_17
+    public class LC_17
     {
+        private Dictionary<char, string> keyMap = new Dictionary<char, string>()
+        {
+            { '2', "abc" },
+            { '3', "def" },
+            { '4', "ghi" },
+            { '5', "jkl" },
+            { '6', "mno" },
+            { '7', "pqrs" },
+            { '8', "tuv" },
+            { '9', "wxyz" },
+        };
+
+        private List<string> keyList = new List<string>();
+        private List<string> combination = new List<string>();
+
         public IList<string> LetterCombinations(string digits)
         {
             if (string.IsNullOrEmpty(digits)) return new List<string>();
 
-            Dictionary<char, string> map = GetMapping();
+            combination.Clear();
+            for (int i = 0; i < digits.Length; ++i)
+            {
+                keyList.Add(keyMap[digits[i]]);
+            }
 
-            return new List<string>();
+            for (int i = 0; i < keyList[0].Length; ++i)
+            {
+                FindCombination(1, "" + keyList[0][i]);
+            }
+            
+            return combination;
         }
 
-        private Dictionary<char, string> GetMapping()
+        public void FindCombination(int keyListInd, string s)
         {
-            Dictionary<char, string> mapping = new Dictionary<char, string>();
-            char value = 'a';
-            for (char key = '2'; key <= '9'; ++key)
+            if (keyListInd >= keyList.Count)
             {
-                int limit = 3;
-                if (key == '7' || key == '9')
-                {
-                    limit = 4;
-                }
-                StringBuilder sb = new StringBuilder();
-                int count = 1;
-                while (count <= limit)
-                {
-                    sb.Append(value);
-                    ++value;
-                    ++count;
-                }
-                mapping[key] = sb.ToString();
+                combination.Add(s);
+                return;
+            };
+
+            for (int i = 0; i < keyList[keyListInd].Length; ++i)
+            {
+                string str = s + keyList[keyListInd][i];
+                FindCombination(keyListInd + 1, str);
             }
-            return mapping;
         }
     }
 }
