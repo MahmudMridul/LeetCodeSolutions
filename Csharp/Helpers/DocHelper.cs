@@ -5,7 +5,7 @@ namespace Csharp.Helpers
     {
         public void GetAllEasyProblems()
         {
-            string folderPath = @"D:\Codes\LeetCodeSolutions\Csharp\Medium";
+            string folderPath = @"D:\Codes\LeetCodeSolutions\Csharp\Easy";
             string output = "names.txt";
 
             try
@@ -32,7 +32,9 @@ namespace Csharp.Helpers
             string fileNameWithExtension = filePath.Substring( filePath.IndexOf("LC") );
             string fileName = fileNameWithExtension.Split('.')[0];
             string problemNo = fileName.Split('_')[1];
-            return $"{n + 1}. [LC {problemNo}]({filePath})";
+            string mdString = $"{n + 1}. [LC {problemNo}]({filePath})";
+            mdString = mdString.Replace('\\', '/');
+            return mdString;
         }
     }
 }
