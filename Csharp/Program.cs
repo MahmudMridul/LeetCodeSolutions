@@ -11,8 +11,8 @@ namespace Csharp
         {
             int[] tArray = { 9, 4, 2, 10, 7, 8, 8, 1, 9 };
             string tString = "2";
-            int var = new LC_978().MaxTurbulenceSize(tArray);
-            Console.WriteLine(var.ToString());
+
+            new DocHelper().GetAllEasyProblems();
         }
     }
 }
