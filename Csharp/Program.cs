@@ -9,10 +9,12 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            int[] tArray = { 9, 4, 2, 10, 7, 8, 8, 1, 9 };
+            int[] tArray = { 11, 13, 17, 23, 29, 31, 7, 5, 2, 3 };
             string tString = "2";
+            int k = 3, threshold = 5;
 
-            new DocHelper().GetAllEasyProblems();
+            int val = new LC_1343().NumOfSubarrays(tArray, k, threshold);
+            Console.WriteLine(val);
         }
     }
 }
