@@ -10,10 +10,10 @@ namespace Csharp
         public static void Main(string[] args)
         {
             int[] tArray = { 11, 13, 17, 23, 29, 31, 7, 5, 2, 3 };
-            string tString = "pwwkew";
-            int k = 3, threshold = 5;
+            string tString = "AABABCACCC";
+            int k = 2, threshold = 5;
 
-            int val = new LC_03().LengthOfLongestSubstring(tString);
+            int val = new LC_424().CharacterReplacement(tString, k);
             Console.WriteLine(val);
         }
     }
