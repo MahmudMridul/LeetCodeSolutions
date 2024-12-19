@@ -3,9 +3,9 @@ namespace Csharp.Helpers
 {
     public class DocHelper
     {
-        public void GetAllEasyProblems()
+        public static void PrepareMarkDownForFolder(string folderName)
         {
-            string folderPath = @"D:\Codes\LeetCodeSolutions\Csharp\Easy";
+            string folderPath = @$"D:\LeetCodeSolutions\Csharp\{folderName}";
             string output = "names.txt";
 
             try
@@ -27,7 +27,7 @@ namespace Csharp.Helpers
             }
         }
 
-        public string GetListAndLinkStringForMd(string filePath, int n)
+        public static string GetListAndLinkStringForMd(string filePath, int n)
         {
             string fileNameWithExtension = filePath.Substring( filePath.IndexOf("LC") );
             string fileName = fileNameWithExtension.Split('.')[0];

@@ -14,8 +14,7 @@ namespace Csharp
             string tString = "  ";
             int k = 2, threshold = 5;
 
-            var v = new LC_26().RemoveDuplicates(tArray);
-            Console.WriteLine(v);
+            DocHelper.PrepareMarkDownForFolder("Medium");
         }
     }
 }
