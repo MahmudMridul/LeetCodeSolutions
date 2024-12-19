@@ -1,4 +1,5 @@
 ﻿using Csharp.Algorithms.Arrays;
+using Csharp.Easy;
 using Csharp.Helpers;
 using Csharp.LC.Classes;
 using Csharp.Medium;
@@ -9,12 +10,12 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            int[] tArray = { 11, 13, 17, 23, 29, 31, 7, 5, 2, 3 };
-            string tString = "AABABCACCC";
+            int[] tArray = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+            string tString = "  ";
             int k = 2, threshold = 5;
 
-            int val = new LC_424().CharacterReplacement(tString, k);
-            Console.WriteLine(val);
+            var v = new LC_26().RemoveDuplicates(tArray);
+            Console.WriteLine(v);
         }
     }
 }
