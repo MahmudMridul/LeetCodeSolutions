@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Csharp.Easy
+﻿namespace Csharp.Easy
 {
-    internal class RemoveDuplicatesFromSortedArray_26
+    public class LC_26
     {
         public int RemoveDuplicates(int[] nums)
         {
