@@ -10,11 +10,11 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            int[] tArray = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
-            string tString = "  ";
+            int[] tArray = { -1, -1, 1, 1, 0, 0 };
+            string tString = "(){}}{";
             int k = 2, threshold = 5;
 
-            DocHelper.PrepareMarkDownForFolder("Medium");
+            new LC_724().PivotIndex(tArray);
         }
     }
 }
