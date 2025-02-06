@@ -2,3 +2,9 @@ Csharp/.vs/*
 Csharp/bin/*
 Csharp/obj/*
 
+Python/.venv/*
+Python/.idea/*
+
+**/__pycache/
+*.pyc
+*.pyo
