@@ -34,6 +34,13 @@ class BinarySearchTree:
             current = current.right
         return current
 
+    def find_height(self, node):
+        if node is None:
+            return -1
+        left_height = self.find_height(node.left)
+        right_height = self.find_height(node.right)
+        return max(left_height, right_height) + 1
+
     def insert(self, value):
         if not self.root:
             self.root = Node(value)
