@@ -1,3 +1,15 @@
+"""
+Inorder traversal of a BST gives nodes in ascending order
+For finding kth smallest element: inorder traversal, stop at k
+Successor = smallest value larger than current
+Predecessor = largest value smaller than current
+Successor is leftmost node in right subtree
+Predecessor is rightmost node in left subtree
+Can construct unique BST from preorder + inorder
+If two nodes, x and y, are on different subtrees of a node z (one in the left portion and one in the right portion),
+then x and y have z as the lowest common ancestor.
+"""
+
 class Node:
     def __init__(self, val = 0, left = None, right = None):
         self.value = val
