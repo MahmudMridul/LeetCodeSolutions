@@ -1,6 +1,6 @@
 """
 Inorder traversal of a BST gives nodes in ascending order
-For finding kth smallest element: inorder traversal, stop at k
+For finding kth small element: inorder traversal, stop at k
 Successor = smallest value larger than current
 Predecessor = largest value smaller than current
 Successor is leftmost node in right subtree
@@ -36,10 +36,8 @@ class BinarySearchTree:
 
     def find_height(self, node):
         if node is None:
-            return -1
-        left_height = self.find_height(node.left)
-        right_height = self.find_height(node.right)
-        return max(left_height, right_height) + 1
+            return -1 # to ensure leaf node gets height 0 --> left node returns max(-1, -1) + 1 = 0
+        return max(self.find_height(node.left), self.find_height(node.right)) + 1
 
     def insert(self, value):
         if not self.root:
