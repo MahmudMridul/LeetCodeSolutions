@@ -33,6 +33,13 @@ class AVL:
             return 0
         return node.height
 
+    @staticmethod
+    def __get_min_value_node(node):
+        current = node
+        while current.left:
+            current = current.left
+        return current
+
     def get_balance_factor(self, node):
         if not node:
             return 0
@@ -42,6 +49,29 @@ class AVL:
         if not node:
             return
         node.height = max(self.get_height(node.left), self.get_height(node.right)) + 1
+
+    def __balance_node(self, node, value):
+        balance = self.get_balance_factor(node)
+
+        # left-left Case
+        if balance > 1 and value < node.left.value:
+            return self.__right_rotate(node)
+
+        # left-right Case
+        if balance > 1 and value > node.left.value:
+            node.left = self.__left_rotate(node.left)
+            return self.__right_rotate(node)
+
+        # right-right Case
+        if balance < -1 and value > node.right.value:
+            return self.__left_rotate(node)
+
+        # right-left Case
+        if balance < -1 and value < node.right.value:
+            node.right = self.__right_rotate(node.right)
+            return self.__left_rotate(node)
+
+        return node
 
     def __right_rotate(self, current_root):
         new_root = current_root.left
@@ -89,23 +119,51 @@ class AVL:
             return node  # Duplicate values are not allowed
 
         self.__update_height(node)
-        balance = self.get_balance_factor(node)
+        return self.__balance_node(node, value)
 
+    def delete(self, value):
+        self.root = self.__delete_recursive(self.root, value)
+
+    def __delete_recursive(self, node, value):
+        if not node:
+            return None
+
+        if value < node.value:
+            node.left = self.__delete_recursive(node.left, value)
+        elif value > node.value:
+            node.right = self.__delete_recursive(node.right, value)
+        else:
+            # node with one child or no child
+            if not node.left:
+                return node.right
+            elif not node.right:
+                return node.left
+
+            # node with two children
+            # get inorder successor (smallest value in right subtree)
+            successor = self.__get_min_value_node(node.right)
+            node.value = successor.value
+            # delete the successor
+            node.right = self.__delete_recursive(node.right, successor.value)
+
+        self.__update_height(node)
+        balance = self.get_balance_factor(node)
+        
         # left-left Case
-        if balance > 1 and value < node.left.value:
+        if balance > 1 and self.get_balance_factor(node.left) >= 0:
             return self.__right_rotate(node)
 
         # left-right Case
-        if balance > 1 and value > node.left.value:
+        if balance > 1 and self.get_balance_factor(node.left) < 0:
             node.left = self.__left_rotate(node.left)
             return self.__right_rotate(node)
 
         # right-right Case
-        if balance < -1 and value > node.right.value:
+        if balance < -1 and self.get_balance_factor(node.right) <= 0:
             return self.__left_rotate(node)
 
         # right-left Case
-        if balance < -1 and value < node.right.value:
+        if balance < -1 and self.get_balance_factor(node.right) > 0:
             node.right = self.__right_rotate(node.right)
             return self.__left_rotate(node)
 
