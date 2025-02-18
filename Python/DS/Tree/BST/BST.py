@@ -92,32 +92,3 @@ class BinarySearchTree:
             return self._search(node.left, value)
         return self._search(node.right, value)
 
-    def inorder_traversal(self):
-        return self.__inorder_traversal(self.root, [])
-
-    def __inorder_traversal(self, node, result):
-        if node:
-            self.__inorder_traversal(node.left, result)
-            result.append(node.value)
-            self.__inorder_traversal(node.right, result)
-        return result
-
-    def preorder_traversal(self):
-        return self.__preorder_traversal(self.root, [])
-
-    def __preorder_traversal(self, node, result):
-        if node:
-            result.append(node.value)
-            self.__preorder_traversal(node.left, result)
-            self.__preorder_traversal(node.right, result)
-        return result
-
-    def postorder_traversal(self):
-        return self.__postorder_traversal(self.root, [])
-
-    def __postorder_traversal(self, node, result):
-        if node:
-            self.__postorder_traversal(node.left, result)
-            self.__postorder_traversal(node.right, result)
-            result.append(node.value)
-        return result
