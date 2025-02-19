@@ -21,7 +21,7 @@ class Node:
         self.value = val
         self.left = None
         self.right = None
-        self.height = 1
+        self.height = 0
 
 class AVL:
     def __init__(self):
@@ -30,7 +30,7 @@ class AVL:
     @staticmethod
     def get_height(node):
         if not node:
-            return 0
+            return -1
         return node.height
 
     @staticmethod
@@ -102,19 +102,16 @@ class AVL:
         return new_root
 
     def insert(self, value):
-        self.root = self.__insert_recursive(self.root, value)
+        self.root = self.__insert(self.root, value)
 
-    def __insert_recursive(self, node, value):
-        if not node:
-            return Node(value)
-
+    def __insert(self, node, value):
         if not node:
             return Node(value)
 
         if value < node.value:
-            node.left = self.__insert_recursive(node.left, value)
+            node.left = self.__insert(node.left, value)
         elif value > node.value:
-            node.right = self.__insert_recursive(node.right, value)
+            node.right = self.__insert(node.right, value)
         else:
             return node  # Duplicate values are not allowed
 
@@ -122,16 +119,16 @@ class AVL:
         return self.__balance_node(node, value)
 
     def delete(self, value):
-        self.root = self.__delete_recursive(self.root, value)
+        self.root = self.__delete(self.root, value)
 
-    def __delete_recursive(self, node, value):
+    def __delete(self, node, value):
         if not node:
             return None
 
         if value < node.value:
-            node.left = self.__delete_recursive(node.left, value)
+            node.left = self.__delete(node.left, value)
         elif value > node.value:
-            node.right = self.__delete_recursive(node.right, value)
+            node.right = self.__delete(node.right, value)
         else:
             # node with one child or no child
             if not node.left:
@@ -144,7 +141,7 @@ class AVL:
             successor = self.__get_min_value_node(node.right)
             node.value = successor.value
             # delete the successor
-            node.right = self.__delete_recursive(node.right, successor.value)
+            node.right = self.__delete(node.right, successor.value)
 
         self.__update_height(node)
         balance = self.get_balance_factor(node)
