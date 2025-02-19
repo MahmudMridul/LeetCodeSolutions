@@ -168,3 +168,13 @@ class AVL:
             return self.__left_rotate(node)
 
         return node
+
+    def search(self, value):
+        return self.__search(self.root, value)
+
+    def __search(self, node, value):
+        if node is None or node.value == value:
+            return node
+        if value < node.value:
+            return self.__search(node.left,value)
+        return self.__search(node.right, value)
