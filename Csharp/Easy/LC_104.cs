@@ -1,4 +1,5 @@
-﻿namespace Csharp.Easy
+﻿using Csharp.LC.Classes;
+namespace Csharp.Easy
 {
     internal class MaxDepthBinaryTree_104
     {
