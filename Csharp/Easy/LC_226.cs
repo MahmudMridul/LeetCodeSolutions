@@ -1,4 +1,5 @@
-﻿namespace Csharp.Easy
+﻿using Csharp.LC.Classes;
+namespace Csharp.Easy
 {
     internal class InvertBinaryTree_226
     {
@@ -26,15 +27,5 @@
         }
     }
 
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
 
-        public TreeNode(int v = 0, TreeNode l = null, TreeNode r = null)
-        {
-            val = v; left = l; right = r;
-        }
-    }
 }
