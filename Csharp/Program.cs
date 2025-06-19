@@ -3,6 +3,7 @@ using Csharp.Easy;
 using Csharp.Helpers;
 using Csharp.LC.Classes;
 using Csharp.Medium;
+using Csharp.Patterns.DFS.Medium;
 
 namespace Csharp
 {
@@ -10,11 +11,29 @@ namespace Csharp
     {
         public static void Main(string[] args)
         {
-            int[] tArray = { -1, -1, 1, 1, 0, 0 };
-            string tString = "(){}}{";
-            int k = 2, threshold = 5;
+            TreeNode tree = MakeTree();
+            int targetSum = 22;
+            new LC_113().PathSum(tree, targetSum);
+        }
 
-            new LC_724().PivotIndex(tArray);
+        private static TreeNode MakeTree()
+        {
+            TreeNode root = new TreeNode(5);
+
+            root.left = new TreeNode(4);
+            root.right = new TreeNode(8);
+
+            root.left.left = new TreeNode(11);
+
+            root.left.left.left = new TreeNode(7);
+            root.left.left.right = new TreeNode(7);
+
+            root.right.left = new TreeNode(13);
+            root.right.right = new TreeNode(4);
+
+            root.right.right.right = new TreeNode(5);
+            root.right.right.right = new TreeNode(1);
+            return root;
         }
     }
 }
