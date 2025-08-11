@@ -1,8 +1,8 @@
 ﻿using Csharp.LC.Classes;
 
-namespace Csharp.Patterns.DFS.Easy
+namespace Csharp.Patterns.LC00112
 {
-    public class LC_112
+    public class Solution
     {
         public bool HasPathSum(TreeNode root, int targetSum)
         {

@@ -13,7 +13,7 @@ namespace Csharp
         {
             TreeNode tree = MakeTree();
             int targetSum = 22;
-            new LC_113().PathSum(tree, targetSum);
+            new LC00113_dfs_medium().PathSum(tree, targetSum);
         }
 
         private static TreeNode MakeTree()

@@ -1,9 +1,8 @@
-﻿
-using Csharp.LC.Classes;
+﻿using Csharp.LC.Classes;
 
-namespace Csharp.Patterns.DFS.Medium
+namespace Csharp.Patterns.LC00113
 {
-    public class LC_113
+    public class Solution
     {
         private IList<IList<int>> paths = new List<IList<int>>();
 

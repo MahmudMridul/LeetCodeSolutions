@@ -1,16 +1,15 @@
-﻿
-using Csharp.LC.Classes;
+﻿using Csharp.LC.Classes;
 
-namespace Csharp.Patterns.BFS.Medium
+namespace Csharp.Patterns.LC00107
 {
-    public class LC_102
+    public class Solution
     {
-        public IList<IList<int>> LevelOrder(TreeNode root)
+        public IList<IList<int>> LevelOrderBottom(TreeNode root)
         {
-            if (root == null) return new List<IList<int>>();
+            if (root is null) return new List<IList<int>>();
 
-            IList<IList<int>> result = new List<IList<int>>();
             Queue<TreeNode> queue = new Queue<TreeNode>();
+            List<IList<int>> result = new List<IList<int>>();
             queue.Enqueue(root);
 
             while (queue.Any())
@@ -32,7 +31,7 @@ namespace Csharp.Patterns.BFS.Medium
                         queue.Enqueue(node.right);
                     }
                 }
-                result.Add(level);
+                result.Insert(0, level);
             }
             return result;
         }
